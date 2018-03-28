@@ -16,8 +16,7 @@ class SearchBar extends Component {
 	}
 	handleTermChange(e) {
 		const term = e.target.value;
-		this.props.onChange(term);
-		
+		this.setState({ term: e.target.value })
 	}
 
 

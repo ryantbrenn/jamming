@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import Spotify from '../../util/Spotify';
 
 import './App.css';
 
@@ -90,7 +91,7 @@ class App extends Component {
   }
 
   search(term) {
-    console.log(term)
+    
 
   }
 
@@ -99,9 +100,7 @@ class App extends Component {
       <div>
 		  <h1>Ja<span className="highlight">mmm</span>ing</h1>
 		  <div className="App">
-		    <SearchBar
-          onSearch={this.search}
-        />
+		    <SearchBar onSearch={this.search} />
 		    <div className="App-playlist">
 		      <SearchResults 
             searchResults={this.state.searchResults}
