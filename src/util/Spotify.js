@@ -43,6 +43,15 @@ getAccessToken() {
           uri: track.uri
         }));
     });
+  }, 
+
+  savePlaylist(playlistName, trackURIs) {
+		if (playlistName && trackURIs) {
+			console.log('fuck yea')
+		} else {
+			return
+		}
+
   }
 
 

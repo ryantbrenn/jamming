@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
-import Spotify from '../../util/Spotify';
+import { Spotify } from '../../util/Spotify';
 
 import './App.css';
 
@@ -87,13 +87,15 @@ class App extends Component {
   savePlaylist() {
     //generate an array of uri valuse called trackURIs
     let trackURIs = this.state.playlistTracks.map(track => track.uri);
+    Spotify.savePlaylist()
    
   }
 
-  search(term) {
-    
-
-  }
+  search(term){
+   Spotify.search(term).then(searchResults => {
+      this.setState({searchResults: searchResults});
+  });
+}
 
   render() {
     return (
