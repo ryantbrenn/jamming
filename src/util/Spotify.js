@@ -46,11 +46,17 @@ getAccessToken() {
   }, 
 
   savePlaylist(playlistName, trackURIs) {
-		if (playlistName && trackURIs) {
-			console.log('fuck yea')
-		} else {
-			return
-		}
+		if (playlistName || trackURIs) {
+			return ;
+		} 
+		accessToken = Spotify.getAccessToken();
+		let headers =  {
+       		'Authorization': 'Bearer ' + accessToken
+   		};
+   		const user_id = '';
+
+   		
+
 
   }
 
