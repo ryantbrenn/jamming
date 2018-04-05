@@ -10,7 +10,6 @@ export const Spotify = {
             return accessToken;
         }
         
-        const accessURL = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
         const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
         const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
         
@@ -23,7 +22,9 @@ export const Spotify = {
             window.history.pushState('Access Token', null, '/'); // This clears the parameters, allowing us to grab a new access token when it expires.
             return accessToken;
         } else {  //redirect user to url
-            window.location = accessURL;        }
+            const accessURL = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
+            window.location = accessURL; 
+        }       }
     },
 
 
